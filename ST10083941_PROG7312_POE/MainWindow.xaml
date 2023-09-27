@@ -36,7 +36,7 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Grid Visibility="Collapsed" Name="gdReplacingBooks">
+                        <Grid Visibility="Visible" Name="gdReplacingBooks">
                             <ListView Width="600" BorderThickness="2" BorderBrush="Black" Style="{StaticResource MaterialDesignListView}" HorizontalAlignment="Left" Name="lsvCallNumbers" Background="Black" Margin="27,117,0,34"/>
                             <Button Name="btnUp" Width="128" Height="50" FontSize="20" Style="{StaticResource MaterialDesignOutlinedButton}" HorizontalAlignment="Left" Margin="701,267,0,0" VerticalAlignment="Top" Click="btnUp_Click">
                                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="48" Height="48"/>
@@ -52,8 +52,8 @@
                             <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" Background="PaleVioletRed" Foreground="White" Name="unsuccessfulSnackbar"/>
                             <Button Content="Leaderboard" Style="{StaticResource MaterialDesignOutlinedButton}"  x:Name="btnReplacingBooksLeaderboard" HorizontalAlignment="Left" Margin="701,520,0,0" VerticalAlignment="Top" Width="128" Height="30" Click="btnReplacingBooksLeaderboard_Click"/>
                         </Grid>
-                        <Grid Name="gdLeaderboard" Visibility="Visible">
-                            <TextBlock Style="{StaticResource MaterialDesignHeadline3TextBlock}" Text="Leaderboard" Margin="304,54,304,383"/>
+                        <Grid Name="gdLeaderboard" Visibility="Collapsed">
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline3TextBlock}" Text="Your Fastest Times!" Margin="222,56,222,381"/>
                             <ListView Name="lsvLeaderboard" Margin="155,127,155,92" Style="{StaticResource MaterialDesignListView}" />
                             <Button x:Name="btnLeaderboardBack"  Margin="372,476,372,26" Click="btnLeaderboardBack_Click">Back</Button>
                         </Grid>
@@ -68,10 +68,12 @@
             Width="24"
             Height="24"
             HorizontalAlignment="Center"
-            Kind="ClockOutline" />
+            Kind="Eye" />
                             <TextBlock
+                                TextWrapping="Wrap"
+                                TextAlignment="Center"
             HorizontalAlignment="Center"
-            Text="Recent" />
+            Text="Identifying Areas" />
                         </StackPanel>
                     </TabItem.Header>
                     <TextBlock>
@@ -94,10 +96,12 @@
             Width="24"
             Height="24"
             HorizontalAlignment="Center"
-            Kind="Images" />
+            Kind="FileFind" />
                             <TextBlock
+                                                                TextWrapping="Wrap"
+                                TextAlignment="Center"
             HorizontalAlignment="Center"
-            Text="Photos" />
+            Text="Finding Call Nums" />
                         </StackPanel>
                     </TabItem.Header>
                     <TextBlock>
