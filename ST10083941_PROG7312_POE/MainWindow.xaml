@@ -14,9 +14,15 @@
         Title="MainWindow" Height="550" Width="900">
     <Grid>
         <ListView Width="600" BorderThickness="2" BorderBrush="Black" Style="{StaticResource MaterialDesignListView}" HorizontalAlignment="Left" Name="lsvCallNumbers" Background="Black" Margin="27,117,0,34"/>
-        <Button Name="btnUp" Content="Up" Width="128" Height="50" FontSize="20" HorizontalAlignment="Left" Margin="701,117,0,0" VerticalAlignment="Top" Click="btnUp_Click"/>
-        <Button Name="btnDown" Content="Down" Width="128" Height="50" Style="{StaticResource MaterialDesignRaisedAccentButton}"  FontSize="20" HorizontalAlignment="Left" Margin="701,200,0,0" VerticalAlignment="Top" Click="btnDown_Click"/>
-        <Button Content="Submit" Name="btnSubmit" HorizontalAlignment="Left" Margin="701,351,0,0" VerticalAlignment="Top" Width="128" Height="50" Click="btnSubmit_Click"/>
+        <Button Name="btnUp" Width="128" Height="50" FontSize="20" Style="{StaticResource MaterialDesignOutlinedButton}" HorizontalAlignment="Left" Margin="701,267,0,0" VerticalAlignment="Top" Click="btnUp_Click">
+            <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="48" Height="48"/>
+        </Button>
+        <Button Name="btnDown" Width="128" Height="50" Style="{StaticResource MaterialDesignOutlinedButton}"  FontSize="20" HorizontalAlignment="Left" Margin="701,359,0,0" VerticalAlignment="Top" Click="btnDown_Click">
+            <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="48" Height="48"/>
+        </Button>
+        <Button IsEnabled="False" Content="Submit" Name="btnSubmit" HorizontalAlignment="Left" Margin="701,450,0,0" VerticalAlignment="Top" Width="128" Height="50" Click="btnSubmit_Click"/>
         <TextBlock HorizontalAlignment="Left" Style="{StaticResource MaterialDesignHeadline3TextBlock}" Margin="27,54,0,0" TextWrapping="Wrap" Text="Call Numbers" VerticalAlignment="Top" Height="48" Width="300"/>
+        <TextBlock HorizontalAlignment="Left" Margin="691,117,0,0" TextWrapping="Wrap" Text="00:00:00" Name="tblTimer"  TextAlignment="Center" Style="{StaticResource MaterialDesignHeadline4TextBlock}" VerticalAlignment="Top" Width="148" Height="39"/>
+        <Button Content="Begin" x:Name="btnBegin" HorizontalAlignment="Left" Margin="701,179,0,0" VerticalAlignment="Top" Width="128" Height="50" Click="btnBegin_Click"/>
     </Grid>
 </Window>
