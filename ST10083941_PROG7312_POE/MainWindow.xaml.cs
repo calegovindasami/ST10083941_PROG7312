@@ -39,6 +39,7 @@ namespace ST10083941_PROG7312_POE
             Stopwatch = new();
             Timer = new(1000);
             Timer.Elapsed += OnTimerElapse!;
+            lsvLeaderboard.ItemsSource = LeaderboardService.Get();
 
             LoadCallNumbers();
         }
@@ -76,6 +77,8 @@ namespace ST10083941_PROG7312_POE
             {
                 successfulSnackbar.MessageQueue!.Enqueue($"You have won! It took you {Stopwatch.Elapsed.ToString(@"hh\:mm\:ss")}");
                 LeaderboardService.Add(Stopwatch.Elapsed);
+                var leaderboard = LeaderboardService.Get();
+                lsvLeaderboard.ItemsSource = leaderboard;
             }
             else
             {
@@ -117,6 +120,18 @@ namespace ST10083941_PROG7312_POE
             CallNumbers = CallNumberService.GenerateCallNumbers();
             lsvCallNumbers.ItemsSource = CallNumbers;
             lsvCallNumbers.SelectedIndex = 0;
+        }
+
+        private void btnReplacingBooksLeaderboard_Click(object sender, RoutedEventArgs e)
+        {
+            gdLeaderboard.Visibility = Visibility.Visible;
+            gdReplacingBooks.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnLeaderboardBack_Click(object sender, RoutedEventArgs e)
+        {
+            gdLeaderboard.Visibility = Visibility.Collapsed;
+            gdReplacingBooks.Visibility = Visibility.Visible;
         }
     }
 }
