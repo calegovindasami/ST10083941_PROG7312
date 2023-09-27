@@ -20,9 +20,11 @@
         <Button Name="btnDown" Width="128" Height="50" Style="{StaticResource MaterialDesignOutlinedButton}"  FontSize="20" HorizontalAlignment="Left" Margin="701,359,0,0" VerticalAlignment="Top" Click="btnDown_Click">
             <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="48" Height="48"/>
         </Button>
-        <Button IsEnabled="False" Content="Submit" Name="btnSubmit" HorizontalAlignment="Left" Margin="701,450,0,0" VerticalAlignment="Top" Width="128" Height="50" Click="btnSubmit_Click"/>
-        <TextBlock HorizontalAlignment="Left" Style="{StaticResource MaterialDesignHeadline3TextBlock}" Margin="27,54,0,0" TextWrapping="Wrap" Text="Call Numbers" VerticalAlignment="Top" Height="48" Width="300"/>
+        <Button IsEnabled="False" Content="Submit" Name="btnReplacingBooksSubmit" HorizontalAlignment="Left" Margin="701,450,0,0" VerticalAlignment="Top" Width="128" Height="50" Click="btnReplacingBooksSubmit_Click"/>
+        <TextBlock HorizontalAlignment="Left" Style="{StaticResource MaterialDesignHeadline3TextBlock}" Margin="177,54,0,0" TextWrapping="Wrap" Text="Call Numbers" VerticalAlignment="Top" Height="48" Width="300"/>
         <TextBlock HorizontalAlignment="Left" Margin="691,117,0,0" TextWrapping="Wrap" Text="00:00:00" Name="tblTimer"  TextAlignment="Center" Style="{StaticResource MaterialDesignHeadline4TextBlock}" VerticalAlignment="Top" Width="148" Height="39"/>
-        <Button Content="Begin" x:Name="btnBegin" HorizontalAlignment="Left" Margin="701,179,0,0" VerticalAlignment="Top" Width="128" Height="50" Click="btnBegin_Click"/>
+        <Button Content="Begin" x:Name="btnReplacingBooksBegin" HorizontalAlignment="Left" Margin="701,179,0,0" VerticalAlignment="Top" Width="128" Height="50" Click="btnReplacingBooksBegin_Click"/>
+        <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" Background="LightGreen" Foreground="White" Name="successfulSnackbar"/>
+        <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" Background="PaleVioletRed" Foreground="White" Name="unsuccessfulSnackbar"/>
     </Grid>
 </Window>

@@ -48,5 +48,24 @@ namespace ST10083941_PROG7312_POE.Services
             }
             return callNumbers;
         }
+
+        public bool IsOrderingCorrect(List<string> callNumbers)
+        {
+            var orderedCallNumbers = callNumbers.Select(x => x).ToList();
+            orderedCallNumbers.Sort();
+            bool isCallNumbersEqual = Enumerable.SequenceEqual(orderedCallNumbers, callNumbers);
+            return isCallNumbersEqual;
+        }
+
+        public ObservableCollection<string> GetCorrectlyOrderedCallNumbers(List<string> callNumbers)
+        {
+            var orderedCallNumbers = new ObservableCollection<string>();
+            callNumbers.Sort();
+            foreach (string number in callNumbers)
+            {
+                orderedCallNumbers.Add(number);
+            }
+            return orderedCallNumbers;
+        }
     }
 }

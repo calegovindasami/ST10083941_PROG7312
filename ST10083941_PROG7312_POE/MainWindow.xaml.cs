@@ -28,6 +28,7 @@ namespace ST10083941_PROG7312_POE
         private CallNumberService CallNumberService;
         private Stopwatch Stopwatch;
         private Timer Timer;
+        private string StartTime = "00:00:00";
 
         public MainWindow()
         {
@@ -35,14 +36,11 @@ namespace ST10083941_PROG7312_POE
 
             CallNumberService = new();
             CallNumbers = new();
-            CallNumbers = CallNumberService.GenerateCallNumbers();
             Stopwatch = new();
             Timer = new(1000);
             Timer.Elapsed += OnTimerElapse!;
 
-
-            lsvCallNumbers.ItemsSource = CallNumbers;
-            lsvCallNumbers.SelectedIndex = 0;
+            LoadCallNumbers();
         }
 
         private void btnUp_Click(object sender, RoutedEventArgs e)
@@ -69,11 +67,25 @@ namespace ST10083941_PROG7312_POE
             }
         }
 
-        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        private void btnReplacingBooksSubmit_Click(object sender, RoutedEventArgs e)
         {
             Stopwatch.Stop();
             Timer.Stop();
+            var isOrderingCorrect = CallNumberService.IsOrderingCorrect(CallNumbers.ToList());
+            if (isOrderingCorrect)
+            {
+                successfulSnackbar.MessageQueue!.Enqueue($"You have won! It took you {Stopwatch.Elapsed.ToString(@"hh\:mm\:ss")}");
+                LeaderboardService.Add(Stopwatch.Elapsed);
+            }
+            else
+            {
+                unsuccessfulSnackbar.MessageQueue!.Enqueue("You have lost! Please view the correctly ordered list above.");
+                CallNumbers = CallNumberService.GetCorrectlyOrderedCallNumbers(CallNumbers.ToList());
+                lsvCallNumbers.ItemsSource = CallNumbers;
+            }
 
+            btnReplacingBooksBegin.IsEnabled = true;
+            btnReplacingBooksSubmit.IsEnabled = false;
         }
 
         private void OnTimerElapse(object sender, ElapsedEventArgs e)
@@ -82,18 +94,29 @@ namespace ST10083941_PROG7312_POE
         }
         private void BeginTimer()
         {
+            Stopwatch.Reset();
+            Timer.Stop();
+            tblTimer.Text = StartTime;
+
             Stopwatch.Start();
             Timer.Start();
+
+            LoadCallNumbers();
+
+            btnReplacingBooksBegin.IsEnabled = false;
+            btnReplacingBooksSubmit.IsEnabled = true;
+        }
+
+        private void btnReplacingBooksBegin_Click(object sender, RoutedEventArgs e)
+        {
+            BeginTimer();
+        }
+
+        private void LoadCallNumbers()
+        {
             CallNumbers = CallNumberService.GenerateCallNumbers();
             lsvCallNumbers.ItemsSource = CallNumbers;
             lsvCallNumbers.SelectedIndex = 0;
-        }
-
-        private void btnBegin_Click(object sender, RoutedEventArgs e)
-        {
-            BeginTimer();
-            btnBegin.IsEnabled = false;
-            btnSubmit.IsEnabled = true;
         }
     }
 }
