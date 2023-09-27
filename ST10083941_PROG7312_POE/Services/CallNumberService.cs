@@ -15,11 +15,15 @@ namespace ST10083941_PROG7312_POE.Services
         {
             Random = new();
         }
+
+        //Generates a classification number between 0 and 1000 and formats it so that it is always 3 digits.
         private string GenerateClassificationNumber()
         {
             int randomNumber = Random.Next(0, 1000);
             return randomNumber.ToString("D3");
         }
+
+        //Randomly generates a character and converts the character array to a string which is returned.
         private string GenerateAuthor()
         {
             char[] author = new char[3];
@@ -29,16 +33,14 @@ namespace ST10083941_PROG7312_POE.Services
             }
             return new string(author);
         }
-        private string GenerateSpecificationNumber()
-        {
-            return Random.Next(0, 1000).ToString("D3");
-        }
 
-
+        //Generates a single call number.
         public string GenerateCallNumber()
         {
-            return $"{GenerateClassificationNumber()}.{GenerateSpecificationNumber()} {GenerateAuthor()}";
+            return $"{GenerateClassificationNumber()}.{GenerateClassificationNumber()} {GenerateAuthor()}";
         }
+
+        //Generates an observable collection of 10 call numbers.
         public ObservableCollection<string> GenerateCallNumbers()
         {
             var callNumbers = new ObservableCollection<string>();
@@ -49,6 +51,7 @@ namespace ST10083941_PROG7312_POE.Services
             return callNumbers;
         }
 
+        //Checks the original callNumbers list to sorted, and returns the result.
         public bool IsOrderingCorrect(List<string> callNumbers)
         {
             var orderedCallNumbers = callNumbers.Select(x => x).ToList();
@@ -57,6 +60,7 @@ namespace ST10083941_PROG7312_POE.Services
             return isCallNumbersEqual;
         }
 
+        //Sorts the call numbers and returns it in ascending order.
         public ObservableCollection<string> GetCorrectlyOrderedCallNumbers(List<string> callNumbers)
         {
             var orderedCallNumbers = new ObservableCollection<string>();

@@ -24,6 +24,7 @@ namespace ST10083941_PROG7312_POE
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Observable collection was used instead of a list so that the binding to the listView is automatic.
         private ObservableCollection<string> CallNumbers;
         private CallNumberService CallNumberService;
         private Stopwatch Stopwatch;
@@ -44,6 +45,7 @@ namespace ST10083941_PROG7312_POE
             LoadCallNumbers();
         }
 
+        //Updates the list to move the selected item up
         private void btnUp_Click(object sender, RoutedEventArgs e)
         {
             var currentIndex = lsvCallNumbers.SelectedIndex;
@@ -56,6 +58,7 @@ namespace ST10083941_PROG7312_POE
             }
         }
 
+        //Updates the list to move the selected item down
         private void btnDown_Click(object sender, RoutedEventArgs e)
         {
             var currentIndex = lsvCallNumbers.SelectedIndex;
@@ -68,6 +71,7 @@ namespace ST10083941_PROG7312_POE
             }
         }
 
+        //Checks if the selected ordering is correct and displays the result to the user.
         private void btnReplacingBooksSubmit_Click(object sender, RoutedEventArgs e)
         {
             Stopwatch.Stop();
@@ -91,10 +95,18 @@ namespace ST10083941_PROG7312_POE
             btnReplacingBooksSubmit.IsEnabled = false;
         }
 
+        //Code Attribution
+        //The following method was taken from this YouTube tutorial.
+        //Author: James Tays
+        //Website: YouTube
+        //Link: https://www.youtube.com/watch?v=biag31sLlFM
         private void OnTimerElapse(object sender, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.Invoke(() => tblTimer.Text = Stopwatch.Elapsed.ToString(@"hh\:mm\:ss"));
         }
+        //End of Code Attribution
+
+        //Resets and begins the timer
         private void BeginTimer()
         {
             Stopwatch.Reset();
@@ -115,6 +127,7 @@ namespace ST10083941_PROG7312_POE
             BeginTimer();
         }
 
+        //Generates random call numbers and sets the source and selected index of the listview.
         private void LoadCallNumbers()
         {
             CallNumbers = CallNumberService.GenerateCallNumbers();
@@ -122,6 +135,7 @@ namespace ST10083941_PROG7312_POE
             lsvCallNumbers.SelectedIndex = 0;
         }
 
+        //Toggles views of the grids that contain the leaderboard and actual task.
         private void btnReplacingBooksLeaderboard_Click(object sender, RoutedEventArgs e)
         {
             gdLeaderboard.Visibility = Visibility.Visible;
