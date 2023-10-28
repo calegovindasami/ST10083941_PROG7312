@@ -68,6 +68,7 @@ namespace ST10083941_PROG7312_POE.Services
                 do
                 {
                     index = random.Next(CategoryKeys.Count);
+                    generatedIndexes.Add(index);
                 }
                 while (generatedIndexes.Contains(index));
 
@@ -83,6 +84,7 @@ namespace ST10083941_PROG7312_POE.Services
                     do
                     {
                         index = random.Next(1, 10);
+                        generatedIndexes.Add(index);
                     }
                     while (generatedIndexes.Contains(index));
 
@@ -91,6 +93,42 @@ namespace ST10083941_PROG7312_POE.Services
             }
 
             return callNums;
+        }
+
+        public ObservableCollection<string> GenerateDescs(ObservableCollection<string> callNums, bool isMatchCallNumToDesc)
+        {
+            ObservableCollection<string> descs = new();
+
+            foreach (var num in callNums)
+            {
+                string? desc;
+                Categories.TryGetValue(num, out desc);
+
+                if (!string.IsNullOrEmpty(desc))
+                {
+                    descs.Add(desc); 
+                }
+            }
+
+            if (isMatchCallNumToDesc)
+            {
+                Random random = new();
+                List<int> generatedIndexes = new();
+                int index;
+                for (int i = 0; i < 3; i++)
+                {
+                    do
+                    {
+                        index = random.Next(IncorrectCategories.Count);
+                        generatedIndexes.Add(index);
+                    }
+                    while (generatedIndexes.Contains(index));
+
+                    descs.Add(IncorrectCategories[index]);
+                }
+            }
+
+            return descs;
         }
 
 
