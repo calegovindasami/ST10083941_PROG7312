@@ -9,7 +9,7 @@ namespace ST10083941_PROG7312_POE.Services
 {
     public class IdentifyingAreasService
     {
-        public Dictionary<string, string> Categories = new()
+        private readonly Dictionary<string, string> Categories = new()
         {
             { "000", "General Knowledge" },
             { "100", "Philosophy & Psychology" },
@@ -23,7 +23,7 @@ namespace ST10083941_PROG7312_POE.Services
             { "900", "History & Geography" }
         };
 
-        List<string> IncorrectCategories = new List<string>
+        private readonly List<string> IncorrectCategories = new List<string>
         {
             "Electronics",
             "Clothing",
@@ -46,50 +46,51 @@ namespace ST10083941_PROG7312_POE.Services
             "Office Supplies"
         };
 
-        List<string> CallNumbers;
+        private List<string> CategoryKeys;
+
+        private List<string> CategoryVals;
 
         public IdentifyingAreasService()
         {
-            CallNumbers = Categories.Keys.ToList();
+            CategoryKeys = Categories.Keys.ToList();
+            CategoryVals = Categories.Values.ToList();
         }
 
-        public Tuple<ObservableCollection<string>, ObservableCollection<string>> GetCallNumberQuestion()
+        public ObservableCollection<string> GenerateCallNums(bool isMatchDescToCallNum)
         {
-            ObservableCollection<string> callNumbers = new();
-            ObservableCollection<string> descriptions = new();
-
-            List<int> generatedNumbers = new();
+            ObservableCollection<string> callNums = new();
+            List<int> generatedIndexes = new();
             Random random = new();
-            int randomIndex;
+            int index;
 
             for (int i = 0; i < 4; i++)
             {
                 do
                 {
-                    randomIndex = random.Next(CallNumbers.Count);
-                    generatedNumbers.Add(randomIndex);
-
-                    callNumbers.Add(CallNumbers[randomIndex]);
-                    descriptions.Add(Categories[callNumbers[i]]);
+                    index = random.Next(CategoryKeys.Count);
                 }
-                while (generatedNumbers.Contains(randomIndex));
+                while (generatedIndexes.Contains(index));
+
+                callNums.Add(CategoryKeys[index]);
             }
 
-            generatedNumbers.Clear();
+            generatedIndexes.Clear();
 
-            for (int i = 0; i < 3; i++)
+            if (isMatchDescToCallNum)
             {
-                do
+                for (int i = 0; i < 3; i++)
                 {
-                    randomIndex = random.Next(IncorrectCategories.Count);
-                    generatedNumbers.Add(randomIndex);
+                    do
+                    {
+                        index = random.Next(1, 10);
+                    }
+                    while (generatedIndexes.Contains(index));
 
-                    descriptions.Add(IncorrectCategories[randomIndex]);
+                    callNums.Add((index * 100 + 1000).ToString());
                 }
-                while (generatedNumbers.Contains(randomIndex));
             }
 
-            return new Tuple<ObservableCollection<string>, ObservableCollection<string>>(callNumbers, descriptions);
+            return callNums;
         }
 
 
