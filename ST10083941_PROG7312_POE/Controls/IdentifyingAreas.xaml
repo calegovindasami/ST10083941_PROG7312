@@ -34,10 +34,10 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
-        <Button Content="Begin" Click="btnBegin_Click" HorizontalAlignment="Left" Name="btnBegin" Margin="11,458,0,0" VerticalAlignment="Top"/>
+        <Button Content="Begin" Click="btnBegin_Click" HorizontalAlignment="Left" Name="btnBegin" Margin="21,458,0,0" VerticalAlignment="Top"/>
         <Button Content="Submit" Click="btnSubmit_Click" Name="btnSubmit" HorizontalAlignment="Left" Margin="113,458,0,0" VerticalAlignment="Top"/>
         <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" Background="ForestGreen" Foreground="White" Name="successfulSnackbarArea"/>
         <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" Background="PaleVioletRed" Foreground="White" Name="unsuccessfulSnackbarArea"/>
-        <ProgressBar Height="20" Name="pbArea" Value="0" Minimum="0" Maximum="100" Margin="12,404,10,76"  materialDesign:TransitionAssist.DisableTransitions="True"/>
+        <ProgressBar Height="20" Name="pbArea" Value="0" Minimum="0" Maximum="100" Margin="12,378,10,102"  materialDesign:TransitionAssist.DisableTransitions="True"/>
     </Grid>
 </UserControl>
