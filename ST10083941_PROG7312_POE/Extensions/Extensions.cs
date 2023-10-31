@@ -5,6 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Code Attribution
+//The following code was taken from StackOverFlow
+//Link: https://stackoverflow.com/questions/273313/randomize-a-listt
+//Author: Grenade
+
 public static class Extensions
 {
     private static Random rng = new Random();
