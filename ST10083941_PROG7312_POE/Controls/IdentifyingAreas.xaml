@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="ST10083941_PROG7312_POE.Controls.IdentifyingAreas"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:dd="urn:gong-wpf-dragdrop"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="{materialDesign:MaterialDesignFont}"
+             xmlns:local="clr-namespace:ST10083941_PROG7312_POE.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="900">
+    <Grid>
+        <ListBox Width="366" BorderThickness="2" Style="{StaticResource MaterialDesignListBox}" HorizontalAlignment="Left" Name="lsvCallNumberArea" Margin="34,76,0,76" AlternationCount="2"  dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True" dd:DragDrop.UseDefaultDragAdorner="True">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="BorderThickness" Value="0.5" />
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="Padding" Value="8"/>
+                    <Setter Property="Margin" Value="2"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <ListBox Width="366" BorderThickness="2" Style="{StaticResource MaterialDesignListBox}" HorizontalAlignment="Left" x:Name="lsvDescArea" Margin="424,76,0,76" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True" dd:DragDrop.UseDefaultDragAdorner="True">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="BorderThickness" Value="0.5" />
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="Padding" Value="8"/>
+                    <Setter Property="Margin" Value="2"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <Button Content="Begin" Click="btnBegin_Click" HorizontalAlignment="Left" Name="btnBegin" Margin="11,458,0,0" VerticalAlignment="Top"/>
+        <Button Content="Submit" Click="btnSubmit_Click" Name="btnSubmit" HorizontalAlignment="Left" Margin="113,458,0,0" VerticalAlignment="Top"/>
+        <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" Background="ForestGreen" Foreground="White" Name="successfulSnackbarArea"/>
+        <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" Background="PaleVioletRed" Foreground="White" Name="unsuccessfulSnackbarArea"/>
+        <ProgressBar Height="20" Name="pbArea" Value="0" Minimum="0" Maximum="100" Margin="12,404,10,76"  materialDesign:TransitionAssist.DisableTransitions="True"/>
+    </Grid>
+</UserControl>

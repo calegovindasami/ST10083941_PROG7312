@@ -3,6 +3,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:controls="clr-namespace:ST10083941_PROG7312_POE.Controls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -20,6 +21,7 @@
     materialDesign:ColorZoneAssist.Mode="PrimaryMid"
     Style="{StaticResource MaterialDesignNavigationRailTabControl}">
                 <TabItem>
+
                     <TabItem.Header>
                         <StackPanel
           Width="auto"
@@ -37,7 +39,7 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Grid Visibility="Visible" Name="gdReplacingBooks">
+                        <Grid Visibility="Visible" Name="gdReplacingBooks" Margin="10,10,-10,-10">
                             <ListView Width="600" BorderThickness="2" BorderBrush="Black" Style="{StaticResource MaterialDesignListView}" HorizontalAlignment="Left" Name="lsvCallNumbers" Background="Black" Margin="27,117,0,34"/>
                             <Button Name="btnUp" Width="128" Height="50" FontSize="20" Style="{StaticResource MaterialDesignOutlinedButton}" HorizontalAlignment="Left" Margin="701,267,0,0" VerticalAlignment="Top" Click="btnUp_Click">
                                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="48" Height="48"/>
@@ -60,7 +62,7 @@
                         </Grid>
                     </Grid>
                 </TabItem>
-                <TabItem IsEnabled="False">
+                <TabItem>
                     <TabItem.Header>
                         <StackPanel
           Width="auto"
@@ -77,16 +79,7 @@
             Text="Identifying Areas" />
                         </StackPanel>
                     </TabItem.Header>
-                    <TextBlock>
-        <Run
-          Text="tab 2 content. Default look and behaviors." />
-        <LineBreak />
-        <LineBreak />
-        <Run
-          FontStyle="Italic">
-        Praesent sed dui arcu. Vivamus porta auctor sagittis
-      </Run>
-                    </TextBlock>
+                    <controls:IdentifyingAreas></controls:IdentifyingAreas>
                 </TabItem>
                 <TabItem IsEnabled="False">
                     <TabItem.Header>

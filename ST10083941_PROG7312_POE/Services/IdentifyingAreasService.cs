@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
@@ -48,14 +49,12 @@ namespace ST10083941_PROG7312_POE.Services
 
         private List<string> CategoryKeys;
 
-        private List<string> CategoryVals;
-
         public IdentifyingAreasService()
         {
             CategoryKeys = Categories.Keys.ToList();
-            CategoryVals = Categories.Values.ToList();
         }
 
+        //Gets 4 valid call numbers and 3 fake ones if game matches desc to call num.
         public ObservableCollection<string> GenerateCallNums(bool isMatchDescToCallNum)
         {
             ObservableCollection<string> callNums = new();
@@ -65,13 +64,14 @@ namespace ST10083941_PROG7312_POE.Services
 
             for (int i = 0; i < 4; i++)
             {
+                //loop to ensure all random numbers are unique
                 do
                 {
                     index = random.Next(CategoryKeys.Count);
-                    generatedIndexes.Add(index);
                 }
                 while (generatedIndexes.Contains(index));
 
+                generatedIndexes.Add(index);
                 callNums.Add(CategoryKeys[index]);
             }
 
@@ -84,17 +84,20 @@ namespace ST10083941_PROG7312_POE.Services
                     do
                     {
                         index = random.Next(1, 10);
-                        generatedIndexes.Add(index);
                     }
                     while (generatedIndexes.Contains(index));
 
+                    generatedIndexes.Add(index);
                     callNums.Add((index * 100 + 1000).ToString());
                 }
             }
 
+            callNums.Shuffle();
+
             return callNums;
         }
 
+        //Generates descriptions based on call numbers and additional if required
         public ObservableCollection<string> GenerateDescs(ObservableCollection<string> callNums, bool isMatchCallNumToDesc)
         {
             ObservableCollection<string> descs = new();
@@ -120,17 +123,67 @@ namespace ST10083941_PROG7312_POE.Services
                     do
                     {
                         index = random.Next(IncorrectCategories.Count);
-                        generatedIndexes.Add(index);
                     }
                     while (generatedIndexes.Contains(index));
 
+                    generatedIndexes.Add(index);
                     descs.Add(IncorrectCategories[index]);
                 }
             }
 
+            descs.Shuffle();
+
             return descs;
         }
 
+        //Returns dictionary of correct answers from call nums
+        public Dictionary<string, string> GetCorrectOrder(ObservableCollection<string> callNums)
+        {
+            var correctOrder = new Dictionary<string, string>();
+
+            foreach (var num in callNums)
+            {
+                string? desc;
+                Categories.TryGetValue(num, out desc);
+
+                if (!string.IsNullOrEmpty(desc))
+                {
+                    correctOrder.Add(num, desc);
+                }
+            }
+
+            return correctOrder;
+        }
+
+        //Checks if two dictionaries are equal
+        public bool IsOrderCorrect(ObservableCollection<string> callNums, Dictionary<string, string> answers)
+        {
+            var correctOrder = GetCorrectOrder(callNums);
+            return Enumerable.SequenceEqual(correctOrder, answers);
+        }
+
+        //Gets the number of correct answers from the answer list
+        public int GetNumberOfCorrectAnswers(ObservableCollection<string> callNums, Dictionary<string, string> answers)
+        {
+            int numCorrect = 0;
+            var correctOrder = GetCorrectOrder(callNums);
+            var correctKeys = correctOrder.Keys.ToList();
+            correctKeys.Sort();
+            var answerKeys = answers.Keys.ToList();
+            answerKeys.Sort();
+
+            for (int i = 0; i < answers.Count; i++)
+            {
+                var correctPair = answers.ElementAt(i);
+                var answerPair = correctOrder.ElementAt(i);
+                if (correctPair.Key == answerPair.Key && correctPair.Value == answerPair.Value)
+                {
+                    numCorrect++;
+                }
+            }
+
+            return numCorrect;
+        }
 
     }
 }
