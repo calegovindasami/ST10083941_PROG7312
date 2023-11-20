@@ -1,4 +1,5 @@
-﻿using ST10083941_PROG7312_POE.Services;
+﻿using ST10083941_PROG7312_POE.Model;
+using ST10083941_PROG7312_POE.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -42,6 +43,19 @@ namespace ST10083941_PROG7312_POE
             Timer.Elapsed += OnTimerElapse!;
             lsvLeaderboard.ItemsSource = LeaderboardService.Get();
 
+            var tree = TreeNode.BuildTree(@"
+500-Natural Science and Mathematics
+ 510-Mathematics
+  511-General principles of mathematics
+  512-Algebra
+  513-Arithmetic
+  514-Topology
+400-Language
+ 410-Linguistics
+  411-Writing systems of standard forms of languages
+  412-Etymology of standard forms of languages
+  413-Dictionaries of standard forms of languages
+  414-Phonology and phonetics of standard forms of languages");
             LoadCallNumbers();
         }
 

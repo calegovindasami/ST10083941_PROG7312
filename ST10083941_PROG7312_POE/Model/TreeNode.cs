@@ -12,7 +12,8 @@ namespace ST10083941_PROG7312_POE.Model
         private readonly Dictionary<string, TreeNode> _children = new();
         public string Id { get; set; }
         public string? Value { get; set; }
-        public TreeNode Parent { get; set; }
+        public TreeNode? Parent { get; set; }
+        public int Count { get { return _children.Count; } }
 
         public TreeNode(string id, string? value)
         {
@@ -36,16 +37,13 @@ namespace ST10083941_PROG7312_POE.Model
             _children.Add(item.Id, item);
         }
 
-        public int Count
-        {
-            get { return _children.Count; }
-        }
-
         public static TreeNode BuildTree(string tree)
         {
-            var lines = tree.Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
-            var result = new TreeNode("Root", null);
-            var childNodes = new List<TreeNode> { result };
+            var lines = tree.Split(new[] { Environment.NewLine },
+                                   StringSplitOptions.RemoveEmptyEntries);
+
+            var result = new TreeNode("TreeRoot", null);
+            var list = new List<TreeNode> { result };
 
             foreach (var line in lines)
             {
@@ -53,15 +51,15 @@ namespace ST10083941_PROG7312_POE.Model
                 var indent = line.Length - trimmedLine.Length;
                 var deweyPair = trimmedLine.Split('-');
                 var child = new TreeNode(deweyPair[0], deweyPair[1]);
-                childNodes[indent].Add(child);
+                list[indent].Add(child);
 
-                if (indent + 1 < childNodes.Count)
+                if (indent + 1 < list.Count)
                 {
-                    childNodes[indent + 1] = child;
-                } 
+                    list[indent + 1] = child;
+                }
                 else
                 {
-                    childNodes.Add(child);
+                    list.Add(child);
                 }
             }
 
