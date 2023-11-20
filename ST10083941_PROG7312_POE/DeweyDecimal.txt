@@ -147,3 +147,13 @@
   647-Management of public households (Institutional housekeeping)
   648-Housekeeping
   649-Child rearing; home care of people with disabilities & illnesses
+ 660-Chemical engineering & related technologies
+  661-Technology of industrial chemicals
+  662-Technology of explosives, fuels, related products
+  663-Beverage technology
+  664-Food technology
+  665-Technology of industrial oils, fats, waxes, gases
+  666-Ceramic & allied technologies
+  667-Cleaning, color, coating, related technologies
+  668-Technology of other organic products
+  669-Metallurgy
