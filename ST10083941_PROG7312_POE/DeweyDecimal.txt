@@ -4,12 +4,80 @@
   512-Algebra
   513-Arithmetic
   514-Topology
+ 520-Astronomy & Allied Sciences
+  520-Astronomy & allied sciences
+  521-Celestial mechanics
+  522-Techniques, procedures, apparatus, equipment, materials
+  523-Specific celestial bodies & phenomena
+  524-Not assigned or no longer used
+  525-Earth (Astronomical geography)
+  526-Mathematical geography
+  527-Celestial navigation
+  528-Ephemerides
+  529-Chronology
+ 530-Physics
+  530-Physics
+  531-Classical mechanics
+  532-Fluid mechanics
+  533-Pneumatics (Gas mechanics)
+  534-Sound & related vibrations
+  535-Light & related radiation
+  536-Heat
+  537-Electricity & electronics
+  538-Magnetism
+  539-Modern physics
+ 540-Chemistry & Allied Sciences
+  540-Chemistry & allied sciences
+  541-Physical chemistry
+  542-Techniques, procedures, apparatus, equipment, materials
+  543-Analytical chemistry
+  544-No longer used—formerly Qualitative analysis
+  545-No longer used—formerly Quantitative analysis
+  546-Inorganic chemistry
+  547-Organic chemistry
+  548-Crystallography
+  549-Mineralogy
 400-Language
  410-Linguistics
   411-Writing systems of standard forms of languages
   412-Etymology of standard forms of languages
   413-Dictionaries of standard forms of languages
   414-Phonology and phonetics of standard forms of languages
+  415-Grammar of standard forms of languages
+  416-No longer used—formerly Prosody
+  417-Dialectology & historical linguistics
+  418-Standard usage (Prescriptive linguistics)
+  419-Sign languages
+ 420-English & Old English (Anglo-Saxon)
+  421-Writing system, phonology, phonetics of standard English
+  422-Etymology of standard English
+  423-Dictionaries of standard English
+  424-No longer used—formerly English thesauruses
+  425-Grammar of standard English
+  426-No longer used—formerly English prosodies
+  427-Historical & geographical variations, modern nongeographic variations of English
+  428-Standard English usage (Prescriptive linguistics)
+  429-Old English (Anglo-Saxon)
+ 430-German and Related Languages
+  431-Writing systems, phonology, phonetics of standard German
+  432-Etymology of standard German
+  433-Dictionaries of standard German
+  434-Not assigned or no longer used
+  435-Grammar of standard German
+  436-Not assigned or no longer used
+  437-Historical & geographic variations, modern nongeographic variations of German
+  438-Standard German usage (Prescriptive linguistics)
+  439-Other Germanic languages
+ 440-French & Related Romance Languages
+  441-Writing systems, phonology, phonetics of standard French
+  442-Etymology of standard French
+  443-Dictionaries of standard French
+  444-Not assigned or no longer used
+  445-Grammar of standard French
+  446-Not assigned or no longer used
+  447-Historical and geographic variations, modern nongeographic variations of French
+  448-Standard French usage (Prescriptive linguistics)
+  449-Occitan Catalan, Franco-Provençal
 700-Arts & Recreation
  710-Area planning and landscape architecture
   711-Area planning (Civic art)
@@ -31,6 +99,26 @@
   727-Buildings for educational and research purposes
   728-Residential and related buildings
   729-Design and decoration of structures and accessories
+ 730-Sculpture and related arts
+  731-Processes, forms, subjects of sculpture
+  732-Sculpture from earliest times to ca. 500, sculpture of nonliterate peoples
+  733-Greek, Etruscan, Roman sculpture
+  734-Sculpture from ca. 500 to 1399
+  735-Sculpture from 1400
+  736-Carving and carvings
+  737-Numismatics and sigillography
+  738-Ceramic arts
+  739-Art metalwork
+ 740-Graphic arts & decorative arts
+  741-Drawing & drawings
+  742-Perspective in drawing
+  743-Drawing & drawings by subject
+  744-Not assigned or no longer used
+  745-Decorative arts
+  746-Textile arts
+  747-Interior decoration
+  748-Glass
+  749-Furniture & accessories
 600-Technology (Applied sciences)
  620-Engineering and allied operations
   621-Applied physics
@@ -51,3 +139,13 @@
   637-Processing dairy and related products
   638-Insect culture
   639-Hunting, fishing, conservation, related technologies
+ 640-Home & Family Management
+  641-Food & drink
+  642-Meals & table service
+  643-Housing & household equipment
+  644-Household utilities
+  645-Household furnishings
+  646-Sewing, clothing, management of personal and family life
+  647-Management of public households (Institutional housekeeping)
+  648-Housekeeping
+  649-Child rearing; home care of people with disabilities & illnesses
