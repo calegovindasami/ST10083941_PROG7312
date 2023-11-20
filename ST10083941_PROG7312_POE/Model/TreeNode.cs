@@ -26,6 +26,13 @@ namespace ST10083941_PROG7312_POE.Model
             return _children[id];
         }
 
+        public TreeNode GetRandomChild()
+        {
+            var rnd = new Random();
+            int number = rnd.Next(0, _children.Count);
+            return _children.ElementAt(number).Value;
+        }
+
         public void Add(TreeNode item)
         {
             if (item.Parent != null)
@@ -42,7 +49,7 @@ namespace ST10083941_PROG7312_POE.Model
             var lines = tree.Split(new[] { Environment.NewLine },
                                    StringSplitOptions.RemoveEmptyEntries);
 
-            var result = new TreeNode("TreeRoot", null);
+            var result = new TreeNode("root", null);
             var list = new List<TreeNode> { result };
 
             foreach (var line in lines)
