@@ -1,6 +1,8 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,11 +28,27 @@ namespace ST10083941_PROG7312_POE.Model
             return _children[id];
         }
 
+        public TreeNode GetChildByIndex(int index)
+        {
+            return _children.ElementAt(index).Value;
+        }
+
+        public ObservableCollection<string> GetChildren()
+        {
+            var children = new ObservableCollection<string>();
+            foreach (var item in _children)
+            {
+                children.Add(item.Key + "-" + item.Value);
+            }
+            return children;
+        }
         public TreeNode GetRandomChild()
         {
-            var rnd = new Random();
-            int number = rnd.Next(0, _children.Count);
-            return _children.ElementAt(number).Value;
+            var rng = new Random();
+            var topLevel =  _children.ElementAt(rng.Next(Count)).Value;
+            var midLevel = topLevel._children.ElementAt(rng.Next(topLevel.Count)).Value;
+            var bottomLevel = midLevel._children.ElementAt(rng.Next(midLevel.Count)).Value;
+            return bottomLevel;
         }
 
         public void Add(TreeNode item)
@@ -81,6 +99,11 @@ namespace ST10083941_PROG7312_POE.Model
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public override string ToString()
+        {
+            return Id + " - " + Value;
         }
     }
 }

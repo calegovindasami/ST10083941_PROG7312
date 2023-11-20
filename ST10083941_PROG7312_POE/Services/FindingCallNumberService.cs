@@ -1,6 +1,8 @@
 ﻿using ST10083941_PROG7312_POE.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,49 +11,58 @@ namespace ST10083941_PROG7312_POE.Services
 {
     public class FindingCallNumberService
     {
-        public TreeNode Root = TreeNode.BuildTree(@"
-500-Natural Science and Mathematics
- 510-Mathematics
-  511-General principles of mathematics
-  512-Algebra
-  513-Arithmetic
-  514-Topology
-400-Language
- 410-Linguistics
-  411-Writing systems of standard forms of languages
-  412-Etymology of standard forms of languages
-  413-Dictionaries of standard forms of languages
-  414-Phonology and phonetics of standard forms of languages");
+        public static TreeNode Root { get; set; }
+        public static TreeNode CorrectTopNode { get; set; }
+        public static TreeNode CorrectParentNode { get; set; }
+        public static TreeNode CorrectNode { get; set; }
+        public static ObservableCollection<string> TopLevelNodes = new();
+        public static ObservableCollection<string> MidLevelNodes = new();
 
-        public TreeNode CorrectParentNode;
-
-        public TreeNode GetThirdLevelEntry()
+        public static void PopulateTree()
         {
-            TreeNode randomNode = Root.GetRandomChild();
-            CorrectParentNode = randomNode;
-            return randomNode.GetRandomChild().GetRandomChild();
+            try
+            {
+                StreamReader reader = new("C:\\Users\\caleg\\Documents\\GitHub\\ST10083941_PROG7312\\ST10083941_PROG7312_POE\\DeweyDecimal.txt");
+                string lines = reader.ReadToEnd();
+                Root = TreeNode.BuildTree(lines);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex.Message);
+            }
         }
 
-        public List<TreeNode> GetFourTopLevelEntries()
+        public static void GetQuestion()
         {
-            List<TreeNode> nodes = new()
-            {
-                CorrectParentNode
-            };
-            TreeNode incorrectNode;
+            CorrectNode = Root.GetRandomChild();
+            CorrectParentNode = CorrectNode.Parent!;
+            CorrectTopNode = CorrectParentNode.Parent!;
+
+            GetTopLevelOptions();
+        }
+
+        public static void GetTopLevelOptions()
+        {
+            var rng = new Random();
+            var topLevelLength = Root.Count();
+            var generatedIndexes = new List<int>(); 
+
+            int randomIndex = 0;
+
+            TopLevelNodes.Add(CorrectTopNode.ToString());
 
             for (int i = 0; i < 3; i++)
             {
                 do
                 {
-                    incorrectNode = Root.GetRandomChild();
-                } while (CorrectParentNode != incorrectNode);
+                    randomIndex = rng.Next(0, topLevelLength);
+                }
+                while (Root.GetChildByIndex(randomIndex) == CorrectParentNode.Parent || generatedIndexes.Contains(randomIndex));
 
-                nodes.Add(incorrectNode);
+
+                generatedIndexes.Add(randomIndex);
+                TopLevelNodes.Add(Root.GetChildByIndex(randomIndex).ToString());
             }
-
-            return nodes;
-
         }
     }
 }

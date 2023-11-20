@@ -1,0 +1,33 @@
+﻿500-Natural sciences and mathematics
+ 510-Mathematics
+  511-General principles of mathematics
+  512-Algebra
+  513-Arithmetic
+  514-Topology
+400-Language
+ 410-Linguistics
+  411-Writing systems of standard forms of languages
+  412-Etymology of standard forms of languages
+  413-Dictionaries of standard forms of languages
+  414-Phonology and phonetics of standard forms of languages
+700-Arts & Recreation
+ 710-Area planning and landscape architecture
+  711-Area planning (Civic art)
+  712-Landscape architecture (Landscape design)
+  713-Landscape architecture of trafficways
+  714-Water features in landscape architecture
+  715-Woody plants in landscape architecture
+  716-Herbaceous plants in landscape architecture
+  717-Structures in landscape architecture
+  718-Landscape design of cemeteries
+  719-Natural landscapes
+600-Technology (Applied sciences)
+ 620-Engineering and allied operations
+  621-Applied physics
+  622-Mining and related operations
+  623-Military and nautical engineering
+  624-Civil engineering
+  625-Engineering of railroads and roads
+  627-Hydraulic engineering
+  628-Sanitary engineering
+  629-Other branches of engineering

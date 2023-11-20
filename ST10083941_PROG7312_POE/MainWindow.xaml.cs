@@ -43,22 +43,8 @@ namespace ST10083941_PROG7312_POE
             Timer.Elapsed += OnTimerElapse!;
             lsvLeaderboard.ItemsSource = LeaderboardService.Get();
 
-            var tree = TreeNode.BuildTree(@"
-500-Natural Science and Mathematics
- 510-Mathematics
-  511-General principles of mathematics
-  512-Algebra
-  513-Arithmetic
-  514-Topology
-400-Language
- 410-Linguistics
-  411-Writing systems of standard forms of languages
-  412-Etymology of standard forms of languages
-  413-Dictionaries of standard forms of languages
-  414-Phonology and phonetics of standard forms of languages");
-            TreeNode randomNode = tree.GetRandomChild();
-            var randoMChild =  randomNode.GetRandomChild().GetRandomChild();
-            LoadCallNumbers();
+            FindingCallNumberService.PopulateTree();
+            FindingCallNumberService.GetQuestion();
         }
 
         //Updates the list to move the selected item up
