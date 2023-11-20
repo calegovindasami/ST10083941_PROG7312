@@ -21,6 +21,16 @@
   717-Structures in landscape architecture
   718-Landscape design of cemeteries
   719-Natural landscapes
+ 720-Architecture
+  721-Architectural materials and structural elements
+  722-Architecture from earliest times to ca. 300
+  723-Architecture from ca. 300 to 1399
+  724-Architecture from 1400
+  725-Public structures
+  726-Buildings for religious and related purposes
+  727-Buildings for educational and research purposes
+  728-Residential and related buildings
+  729-Design and decoration of structures and accessories
 600-Technology (Applied sciences)
  620-Engineering and allied operations
   621-Applied physics
@@ -31,3 +41,13 @@
   627-Hydraulic engineering
   628-Sanitary engineering
   629-Other branches of engineering
+ 630-Agriculture and related technologies
+  631-Specific techniques; apparatus, equipment, materials
+  632-Plant injuries, diseases, pests
+  633-Field and plantation crops
+  634-Orchards, fruits, forestry
+  635-Garden crops (Horticulture)
+  636-Animal husbandry
+  637-Processing dairy and related products
+  638-Insect culture
+  639-Hunting, fishing, conservation, related technologies

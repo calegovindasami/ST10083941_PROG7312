@@ -39,6 +39,7 @@ namespace ST10083941_PROG7312_POE.Services
             CorrectTopNode = CorrectParentNode.Parent!;
 
             GetTopLevelOptions();
+            GetMidLevelOptions();
         }
 
         public static void GetTopLevelOptions()
@@ -47,7 +48,7 @@ namespace ST10083941_PROG7312_POE.Services
             var topLevelLength = Root.Count();
             var generatedIndexes = new List<int>(); 
 
-            int randomIndex = 0;
+            var randomIndex = 0;
 
             TopLevelNodes.Add(CorrectTopNode.ToString());
 
@@ -62,6 +63,30 @@ namespace ST10083941_PROG7312_POE.Services
 
                 generatedIndexes.Add(randomIndex);
                 TopLevelNodes.Add(Root.GetChildByIndex(randomIndex).ToString());
+            }
+        }
+
+        public static void GetMidLevelOptions()
+        {
+            var rng = new Random();
+            var midLevelLength = CorrectTopNode.Count();
+
+            var generatedIndexes = new List<int>();
+
+            var randomIndex = 0;
+
+            MidLevelNodes.Add(CorrectParentNode.ToString());
+
+            for (int i = 0; i < 3; i++)
+            {
+                do
+                {
+                    randomIndex = rng.Next(0, midLevelLength);
+                }
+                while (CorrectTopNode.GetChildByIndex(randomIndex) == CorrectTopNode /*|| generatedIndexes.Contains(randomIndex)*/);
+
+                generatedIndexes.Add(randomIndex);
+                MidLevelNodes.Add(CorrectTopNode.GetChildByIndex(randomIndex).ToString());
             }
         }
     }
