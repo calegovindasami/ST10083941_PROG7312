@@ -5,7 +5,6 @@
   513-Arithmetic
   514-Topology
  520-Astronomy & Allied Sciences
-  520-Astronomy & allied sciences
   521-Celestial mechanics
   522-Techniques, procedures, apparatus, equipment, materials
   523-Specific celestial bodies & phenomena
@@ -27,7 +26,6 @@
   538-Magnetism
   539-Modern physics
  540-Chemistry & Allied Sciences
-  540-Chemistry & allied sciences
   541-Physical chemistry
   542-Techniques, procedures, apparatus, equipment, materials
   543-Analytical chemistry

@@ -83,7 +83,7 @@ namespace ST10083941_PROG7312_POE.Services
                 {
                     randomIndex = rng.Next(0, midLevelLength);
                 }
-                while (CorrectTopNode.GetChildByIndex(randomIndex) == CorrectTopNode /*|| generatedIndexes.Contains(randomIndex)*/);
+                while (CorrectTopNode.GetChildByIndex(randomIndex) == CorrectParentNode || generatedIndexes.Contains(randomIndex));
 
                 generatedIndexes.Add(randomIndex);
                 MidLevelNodes.Add(CorrectTopNode.GetChildByIndex(randomIndex).ToString());
