@@ -12,7 +12,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="900">
     <Grid>
-        <TextBlock Margin="29,13,4,455" Name="txtQuestion" FontSize="24" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" Text="What Top Level Call Number Does The Following Belong To?">
+        <TextBlock Margin="29,13,4,455" Name="txtQuestion" FontSize="24" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" Text="Find the correct category!">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -21,10 +21,10 @@
                     <TranslateTransform Y="-0.471"/>
                 </TransformGroup>
             </TextBlock.RenderTransform></TextBlock>
-        <TextBlock Margin="150,93,150,312" FontSize="48" Name="txtCallNumber"  FontWeight="Bold" TextAlignment="Center">323-Example</TextBlock>
-        <Button Content="Option 1" Height="100" Background="#C60929" VerticalContentAlignment="Center" FontSize="32" HorizontalContentAlignment="Center" Name="btnOptionOne" Margin="50,250,500,150"/>
-        <Button Content="Option 2" Height="100" Background="#0542B9" VerticalContentAlignment="Center" FontSize="32" HorizontalContentAlignment="Center" Name="btnOptionTwo" Margin="500,250,50,150"/>
-        <Button Content="Option 3" Height="100" Background="#D89E00" VerticalContentAlignment="Center" FontSize="32" HorizontalContentAlignment="Center" x:Name="btnOptionThree" Margin="50,377,500,23"/>
-        <Button Content="Option 4" Height="100" Background="#106B03" VerticalContentAlignment="Center" FontSize="32" HorizontalContentAlignment="Center" x:Name="btnOptionFour" Margin="500,377,50,23"/>
+        <TextBlock Margin="20,93,20,312" FontSize="32" Name="txtCallNumber"  FontWeight="Bold" TextAlignment="Center">323-Example</TextBlock>
+        <Button Content="Option 1" Height="100" Background="#C60929" VerticalContentAlignment="Center" FontSize="16" HorizontalContentAlignment="Center" Name="btnOptionOne" Margin="50,250,500,150"/>
+        <Button Content="Option 2" Height="100" Background="#0542B9" VerticalContentAlignment="Center" FontSize="16" HorizontalContentAlignment="Center" Name="btnOptionTwo" Margin="500,250,50,150"/>
+        <Button Content="Option 3" Height="100" Background="#D89E00" VerticalContentAlignment="Center" FontSize="16" HorizontalContentAlignment="Center" x:Name="btnOptionThree" Margin="50,377,500,23"/>
+        <Button Content="Option 4" Height="100" Background="#106B03" VerticalContentAlignment="Center" FontSize="16" HorizontalContentAlignment="Center" x:Name="btnOptionFour" Margin="500,377,50,23"/>
     </Grid>
 </UserControl>

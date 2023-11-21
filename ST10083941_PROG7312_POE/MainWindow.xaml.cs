@@ -42,9 +42,6 @@ namespace ST10083941_PROG7312_POE
             Timer = new(1000);
             Timer.Elapsed += OnTimerElapse!;
             lsvLeaderboard.ItemsSource = LeaderboardService.Get();
-
-            FindingCallNumberService.PopulateTree();
-            FindingCallNumberService.GetQuestion();
         }
 
         //Updates the list to move the selected item up

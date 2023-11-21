@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ST10083941_PROG7312_POE.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,27 @@ namespace ST10083941_PROG7312_POE.Controls
     /// </summary>
     public partial class FindingCallNumbers : UserControl
     {
+        public List<Button> OptionButtons;
         public FindingCallNumbers()
         {
             InitializeComponent();
+            OptionButtons = new()
+            {
+                btnOptionOne,
+                btnOptionTwo,
+                btnOptionThree,
+                btnOptionFour,
+            };
+
+            FindingCallNumberUIService.Buttons = OptionButtons;
+            LoadQuestions();
+        }
+
+        public void LoadQuestions()
+        {
+            FindingCallNumberUIService.LoadTopLevelQuestions();
+            var content = FindingCallNumberService.BottomNode.ToString().Split('-');
+            txtCallNumber.Text = content[1];
         }
     }
 }

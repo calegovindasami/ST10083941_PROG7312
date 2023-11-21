@@ -81,7 +81,7 @@
                     </TabItem.Header>
                     <controls:IdentifyingAreas></controls:IdentifyingAreas>
                 </TabItem>
-                <TabItem IsEnabled="False">
+                <TabItem IsEnabled="True">
                     <TabItem.Header>
                         <StackPanel
           Width="auto"
@@ -98,12 +98,7 @@
             Text="Finding Call Nums" />
                         </StackPanel>
                     </TabItem.Header>
-                    <TextBlock>
-        <Run
-          Text="tab 3 content. Default look and behaviors." />
-        <LineBreak />
-        <LineBreak />
-                    </TextBlock>
+                    <controls:FindingCallNumbers></controls:FindingCallNumbers>
                 </TabItem>
             </TabControl>
         </materialDesign:Card>
