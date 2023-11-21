@@ -24,7 +24,6 @@ namespace ST10083941_PROG7312_POE.Services
             FindingCallNumbers.TxtCallNumber.Text = content[1];
             pbCallNumber = FindingCallNumbers.PBCalNumber;
             pbCallNumber.Value = 0f;
-            Buttons.Shuffle();
 
             for (int i = 0; i < 4; i++)
             {
@@ -40,8 +39,6 @@ namespace ST10083941_PROG7312_POE.Services
 
         public static void LoadMidLevelQuestions()
         {
-            Buttons.Shuffle();
-
             for (int i = 0; i < 4; i++)
             {
                 if (FindingCallNumberService.MidLevelNodes[i].Equals(FindingCallNumberService.MiddleNode.ToString()))
@@ -57,8 +54,6 @@ namespace ST10083941_PROG7312_POE.Services
 
         public static void LoadBottomLevelQuestions()
         {
-            Buttons.Shuffle();
-
             for (int i = 0; i < 4; i++)
             {
                 if (FindingCallNumberService.BottomLevelNodes[i].Equals(FindingCallNumberService.BottomNode.ToString()))

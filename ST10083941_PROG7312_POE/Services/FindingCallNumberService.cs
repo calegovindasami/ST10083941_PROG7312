@@ -71,6 +71,13 @@ namespace ST10083941_PROG7312_POE.Services
                 currentLevelNodes.Add(highestNode.GetChildByIndex(index).ToString());
             }
 
+            var currentLevelNodesList = currentLevelNodes.ToList();
+            currentLevelNodesList.Sort();
+            currentLevelNodes.Clear();
+            foreach (var item in currentLevelNodesList)
+            {
+                currentLevelNodes.Add(item);
+            }
         }
 
         public static bool isLevelCorrect(TreeNode levelNode, string answer)
