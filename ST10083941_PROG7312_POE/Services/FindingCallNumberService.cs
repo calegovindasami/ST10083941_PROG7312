@@ -39,6 +39,10 @@ namespace ST10083941_PROG7312_POE.Services
             MiddleNode = BottomNode.Parent!;
             TopNode = MiddleNode.Parent!;
 
+            TopLevelNodes.Clear();
+            MidLevelNodes.Clear();
+            BottomLevelNodes.Clear();
+
             GetLevelOptions(Root, TopLevelNodes, TopNode);
             GetLevelOptions(TopNode, MidLevelNodes, MiddleNode);
             GetLevelOptions(MiddleNode, BottomLevelNodes, BottomNode);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ST10083941_PROG7312_POE.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,8 +15,12 @@ namespace ST10083941_PROG7312_POE.Services
         static List<Action> Questions = new() { LoadMidLevelQuestions, LoadBottomLevelQuestions};
         public static void LoadTopLevelQuestions()
         {
+            ClearButtonTags();
+            Questions = PopulateQuestions();
             FindingCallNumberService.PopulateTree();
             FindingCallNumberService.GetQuestion();
+            var content = FindingCallNumberService.BottomNode.ToString().Split('-');
+            FindingCallNumbers.TxtCallNumber.Text = content[1];
             Buttons.Shuffle();
 
             for (int i = 0; i < 4; i++)
@@ -70,7 +75,6 @@ namespace ST10083941_PROG7312_POE.Services
             if (Questions.Count == 0 && button!.Tag != null)
             {
                 MessageBox.Show("You have won! Congratulations!");
-                Questions = PopulateQuestions();
                 ClearButtonTags();
                 LoadTopLevelQuestions();
             }
@@ -83,7 +87,8 @@ namespace ST10083941_PROG7312_POE.Services
             else if (button!.Tag == null)
             {
                 MessageBox.Show("Incorrect! Game has been reset");
-                //LoadTopLevelQuestions();
+                ClearButtonTags();
+                LoadTopLevelQuestions();
             }
         }
 
@@ -99,7 +104,7 @@ namespace ST10083941_PROG7312_POE.Services
 
         public static List<Action> PopulateQuestions()
         {
-            return new List< Action> { LoadTopLevelQuestions, LoadMidLevelQuestions, LoadBottomLevelQuestions };
+            return new List< Action> { LoadMidLevelQuestions, LoadBottomLevelQuestions };
         }
     }
 }

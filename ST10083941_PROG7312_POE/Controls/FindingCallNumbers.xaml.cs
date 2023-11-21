@@ -22,6 +22,7 @@ namespace ST10083941_PROG7312_POE.Controls
     public partial class FindingCallNumbers : UserControl
     {
         public List<Button> OptionButtons;
+        public static TextBlock TxtCallNumber;
         public FindingCallNumbers()
         {
             InitializeComponent();
@@ -34,14 +35,13 @@ namespace ST10083941_PROG7312_POE.Controls
             };
 
             FindingCallNumberUIService.Buttons = OptionButtons;
+            TxtCallNumber = txtCallNumber;
             LoadQuestions();
         }
 
         public void LoadQuestions()
         {
             FindingCallNumberUIService.LoadTopLevelQuestions();
-            var content = FindingCallNumberService.BottomNode.ToString().Split('-');
-            txtCallNumber.Text = content[1];
         }
     }
 }
