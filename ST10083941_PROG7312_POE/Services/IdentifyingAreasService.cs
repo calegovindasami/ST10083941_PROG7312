@@ -185,5 +185,17 @@ namespace ST10083941_PROG7312_POE.Services
             return numCorrect;
         }
 
+        //Converts lists to dictionary
+        public Dictionary<string, string> ConstructDictionary(ObservableCollection<string> callNums, ObservableCollection<string> descs)
+        {
+            Dictionary<string, string> questions = new();
+            for (int i = 0; i < 4; i++)
+            {
+                questions.Add(callNums[i], descs[i]);
+            }
+
+            return questions;
+        }
+
     }
 }

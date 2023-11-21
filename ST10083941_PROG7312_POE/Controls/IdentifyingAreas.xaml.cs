@@ -37,25 +37,16 @@ namespace ST10083941_PROG7312_POE.Controls
             LoadQuestions();
         }
 
-        //Converts lists to dictionary
-        private Dictionary<string, string> ConstructDictionary()
-        {
-            Dictionary<string, string> questions = new();
-            for (int i = 0; i < 4; i++)
-            {
-                questions.Add(CallNumbers[i], Descriptions[i]);
-            }
-
-            return questions;
-        }
+        //Moved construct dictionary method since that should of been in IdentifyingAreasService
 
         //Validates and checks if user entered correct answers
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, string> answers = ConstructDictionary();
+            Dictionary<string, string> answers = idService.ConstructDictionary(CallNumbers, Descriptions);
             var isCorrect = idService.IsOrderCorrect(CallNumbers, answers);
             var numCorrect = idService.GetNumberOfCorrectAnswers(CallNumbers, answers);
 
+            //Calculation is for the UI component, not part of gameplay logic. 
             double percentage = (numCorrect / 4.0 * 100.0);
 
             pbArea.Value = percentage;
@@ -68,7 +59,10 @@ namespace ST10083941_PROG7312_POE.Controls
 
         }
 
-        //Resets game
+        //Resets game - including UI
+        //Cannot move this to another class since I'll have to pass in UI components which is a bit messy.
+        //isMatchDescToCall is kept here so that it is only changed when the user begins a new game. Adding it to service would mean having to
+        //tie in the UI to game logic since only on certain events it is reassigned.
         private void LoadQuestions()
         {
             CallNumbers = idService.GenerateCallNums(isMatchDescToCall);

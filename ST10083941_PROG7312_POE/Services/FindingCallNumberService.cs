@@ -39,62 +39,12 @@ namespace ST10083941_PROG7312_POE.Services
             MiddleNode = BottomNode.Parent!;
             TopNode = MiddleNode.Parent!;
 
-            //GetTopLevelOptions();
-            //GetMidLevelOptions();
             GetLevelOptions(Root, TopLevelNodes, TopNode);
             GetLevelOptions(TopNode, MidLevelNodes, MiddleNode);
             GetLevelOptions(MiddleNode, BottomLevelNodes, BottomNode);
         }
 
-        public static void GetTopLevelOptions()
-        {
-            var rng = new Random();
-            var topLevelLength = Root.Count();
-            var generatedIndexes = new List<int>(); 
-
-            var randomIndex = 0;
-
-            TopLevelNodes.Add(TopNode.ToString());
-
-            for (int i = 0; i < 3; i++)
-            {
-                do
-                {
-                    randomIndex = rng.Next(0, topLevelLength);
-                }
-                while (Root.GetChildByIndex(randomIndex) == TopNode || generatedIndexes.Contains(randomIndex));
-
-
-                generatedIndexes.Add(randomIndex);
-                TopLevelNodes.Add(Root.GetChildByIndex(randomIndex).ToString());
-            }
-        }
-
-        public static void GetMidLevelOptions()
-        {
-            var rng = new Random();
-            var midLevelLength = TopNode.Count();
-
-            var generatedIndexes = new List<int>();
-
-            var randomIndex = 0;
-
-            MidLevelNodes.Add(MiddleNode.ToString());
-
-            for (int i = 0; i < 3; i++)
-            {
-                do
-                {
-                    randomIndex = rng.Next(0, midLevelLength);
-                }
-                while (TopNode.GetChildByIndex(randomIndex) == MiddleNode || generatedIndexes.Contains(randomIndex));
-
-                generatedIndexes.Add(randomIndex);
-                MidLevelNodes.Add(TopNode.GetChildByIndex(randomIndex).ToString());
-            }
-        }
-
-        public static void GetLevelOptions(TreeNode highestNode, ObservableCollection<string> levelNodes, TreeNode correctLevelNode)
+        public static void GetLevelOptions(TreeNode highestNode, ObservableCollection<string> currentLevelNodes, TreeNode currentLevelNode)
         {
             var rng = new Random();
             var levelLength = highestNode.Count;
@@ -103,7 +53,7 @@ namespace ST10083941_PROG7312_POE.Services
 
             var index = 0;
 
-            levelNodes.Add(correctLevelNode.ToString());
+            currentLevelNodes.Add(currentLevelNode.ToString());
 
             for (int i = 0; i < 3; i++)
             {
@@ -111,12 +61,17 @@ namespace ST10083941_PROG7312_POE.Services
                 {
                     index = rng.Next(levelLength);
                 }
-                while (highestNode.GetChildByIndex(index) == correctLevelNode || generatedIndexes.Contains(index));
+                while (highestNode.GetChildByIndex(index) == currentLevelNode || generatedIndexes.Contains(index));
 
                 generatedIndexes.Add(index);
-                levelNodes.Add(highestNode.GetChildByIndex(index).ToString());
+                currentLevelNodes.Add(highestNode.GetChildByIndex(index).ToString());
             }
 
+        }
+
+        public static bool isLevelCorrect(TreeNode levelNode, string answer)
+        {
+            return levelNode.ToString().Equals(answer);
         }
     }
 }
