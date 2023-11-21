@@ -50,7 +50,7 @@
   421-Writing system, phonology, phonetics of standard English
   422-Etymology of standard English
   423-Dictionaries of standard English
-  424-nglish thesauruses
+  424-English thesauruses
   425-Grammar of standard English
   426-English prosodies
   427-Historical & geographical variations, modern nongeographic variations of English

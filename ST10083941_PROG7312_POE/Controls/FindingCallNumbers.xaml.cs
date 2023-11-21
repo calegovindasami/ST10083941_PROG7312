@@ -23,6 +23,8 @@ namespace ST10083941_PROG7312_POE.Controls
     {
         public List<Button> OptionButtons;
         public static TextBlock TxtCallNumber;
+        public static ProgressBar PBCalNumber;
+
         public FindingCallNumbers()
         {
             InitializeComponent();
@@ -36,12 +38,14 @@ namespace ST10083941_PROG7312_POE.Controls
 
             FindingCallNumberUIService.Buttons = OptionButtons;
             TxtCallNumber = txtCallNumber;
-            LoadQuestions();
+            PBCalNumber = pbCallNumber;
+            FindingCallNumberUIService.LoadTopLevelQuestions();
         }
 
-        public void LoadQuestions()
+        private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             FindingCallNumberUIService.LoadTopLevelQuestions();
+            MessageBox.Show("Game has been reset.");
         }
     }
 }

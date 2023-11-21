@@ -12,6 +12,7 @@ namespace ST10083941_PROG7312_POE.Services
     public class FindingCallNumberUIService
     {
         public static List<Button> Buttons;
+        public static ProgressBar pbCallNumber;
         static List<Action> Questions = new() { LoadMidLevelQuestions, LoadBottomLevelQuestions};
         public static void LoadTopLevelQuestions()
         {
@@ -21,6 +22,8 @@ namespace ST10083941_PROG7312_POE.Services
             FindingCallNumberService.GetQuestion();
             var content = FindingCallNumberService.BottomNode.ToString().Split('-');
             FindingCallNumbers.TxtCallNumber.Text = content[1];
+            pbCallNumber = FindingCallNumbers.PBCalNumber;
+            pbCallNumber.Value = 0f;
             Buttons.Shuffle();
 
             for (int i = 0; i < 4; i++)
@@ -49,6 +52,7 @@ namespace ST10083941_PROG7312_POE.Services
                 Buttons[i].Content = FindingCallNumberService.MidLevelNodes[i];
                 Buttons[i].Click += new RoutedEventHandler(OptionButtonClick);
             }
+            pbCallNumber.Value = 33f;
         }
 
         public static void LoadBottomLevelQuestions()
@@ -67,6 +71,7 @@ namespace ST10083941_PROG7312_POE.Services
                 Buttons[i].Content = deweyPair[0];
                 Buttons[i].Click += new RoutedEventHandler(OptionButtonClick);
             }
+            pbCallNumber.Value = 66f;
         }
 
         public static void OptionButtonClick(object sender, RoutedEventArgs e)
@@ -74,9 +79,9 @@ namespace ST10083941_PROG7312_POE.Services
             Button? button = ((Button)sender);
             if (Questions.Count == 0 && button!.Tag != null)
             {
+                pbCallNumber.Value = 100f;
                 MessageBox.Show("You have won! Congratulations!");
                 ClearButtonTags();
-                LoadTopLevelQuestions();
             }
             else if (button!.Tag != null)
             {
