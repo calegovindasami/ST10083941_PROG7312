@@ -23,7 +23,7 @@ namespace ST10083941_PROG7312_POE.Services
         {
             try
             {
-                StreamReader reader = new("C:\\Users\\caleg\\Documents\\GitHub\\ST10083941_PROG7312\\ST10083941_PROG7312_POE\\DeweyDecimal.txt");
+                StreamReader reader = new(GetFileDirectory());
                 string lines = reader.ReadToEnd();
                 Root = TreeNode.BuildTree(lines);
             }
@@ -83,6 +83,13 @@ namespace ST10083941_PROG7312_POE.Services
         public static bool isLevelCorrect(TreeNode levelNode, string answer)
         {
             return levelNode.ToString().Equals(answer);
+        }
+
+        public static string GetFileDirectory()
+        {
+            var workingDirectory = Environment.CurrentDirectory;
+            var projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+            return projectDirectory + "\\DeweyDecimal.txt";
         }
     }
 }

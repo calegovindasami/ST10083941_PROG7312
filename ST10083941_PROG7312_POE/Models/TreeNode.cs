@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ST10083941_PROG7312_POE.Model
 {
+    //The following code was taken from stackoverflow
+    //Link: https://stackoverflow.com/questions/9860207/build-a-simple-high-performance-tree-data-structure-in-c-sharp
+    //Author: Marcus Mangelsdorf
     public class TreeNode : IEnumerable<TreeNode>
     {
         private readonly Dictionary<string, TreeNode> _children = new();

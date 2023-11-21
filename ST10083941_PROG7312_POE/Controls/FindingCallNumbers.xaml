@@ -10,9 +10,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ST10083941_PROG7312_POE.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="900">
+             d:DesignHeight="520" d:DesignWidth="900">
     <Grid>
-        <Button Name="btnReset" Margin="739,472,50,-4" Click="btnReset_Click">Reset</Button>
+        <Button Name="btnReset" Margin="739,478,50,-10" Click="btnReset_Click">Reset</Button>
         <TextBlock Margin="29,13,4,455" Name="txtQuestion" FontSize="24" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" Text="Find the correct call number!">
             <TextBlock.RenderTransform>
                 <TransformGroup>

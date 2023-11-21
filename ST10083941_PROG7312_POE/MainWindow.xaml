@@ -98,6 +98,7 @@
             Text="Finding Call Nums" />
                         </StackPanel>
                     </TabItem.Header>
+                    <!--Error caused by it not being able to  resolve something within the constructor at design time. It will work when you run it. See: https://stackoverflow.com/questions/17701545/how-to-avoid-a-object-reference-not-set-to-an-instance-of-an-object-exception -->
                     <controls:FindingCallNumbers></controls:FindingCallNumbers>
                 </TabItem>
             </TabControl>
