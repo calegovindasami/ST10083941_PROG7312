@@ -103,7 +103,6 @@ namespace ST10083941_PROG7312_POE.Services
             {
                 button.Tag = null;
                 button.Click -= new RoutedEventHandler(OptionButtonClick);
-               
             }
         }
 
